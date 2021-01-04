@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	 <menuitem id="menu_root_centros"  name="Centros" sequence="30" />
+	 <menuitem id="menu_root_centros_colegios_view" name="Colegios" parent="menu_root_centros"/>
+	 <menuitem id="menu_root_centros_profesores_view" name="Profesores" parent="menu_root_centros"/>
+	 <menuitem id="menu_root_centros_aulas_view" name="Aulas" parent="menu_root_centros"/>
+	 
+	 <record model="ir.actions.act_window" id="listar_colegios_action">
+            <field name="name">Colegio</field>
+            <field name="res_model">centros.colegios</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="listar_profesores_action">
+            <field name="name">Profesores</field>
+            <field name="res_model">centros.profesores</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="listar_aulas_action">
+            <field name="name">Aulas</field>
+            <field name="res_model">centros.aulas</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        
+        
+        
+         <menuitem id="menu_root_centros_colegios_view" name="Colegios" parent="menu_root_centros" action="listar_colegios_action"/>
+	 <menuitem id="menu_root_centros_profesores_view" name="Profesores" parent="menu_root_centros" action="listar_profesores_action"/>
+	 <menuitem id="menu_root_centros_aulas_view" name="Aulas" parent="menu_root_centros" action="listar_aulas_action"/>
+	 
+	 
+	 <record model="ir.ui.view" id="view_centros_colegios_tree">
+        <field name="name">view.centros.colegios.tree</field>
+        <field name="model">centros.colegios</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="nombre"/>
+              <field name="idCentro"/>
+              <field name="educacion"/>
+              <field name="aulaCentro"/>
+              <field name="profesoresCentro"/>
+              <field name="materiales"/>
+              
+            </tree>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_centros_profesores_tree">
+        <field name="name">view.centros.profesores.tree</field>
+        <field name="model">centros.profesores</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="nombreProfe"/>
+              <field name="apellido"/>
+              <field name="nacimiento"/>
+              <field name="edad"/>
+              <field name="director"/>
+              <field name="centro"/>
+              <field name="aula"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_centros_aulas_tree">
+        <field name="name">view.centros.aulas.tree</field>
+        <field name="model">centros.aulas</field>
+        <field name="arch" type="xml">
+            <tree string="Idea list">
+              <field name="idAula"/>
+              <field name="profesorNombre"/>
+              <field name="delegado"/>
+              <field name="bilingue"/>
+              
+            </tree>
+        </field>
+    </record>
+    
+    
+    <record model="ir.ui.view" id="view_centros_colegios_form">
+            <field name='name'>view.centros.colegios.form</field>
+            <field name="model">centros.colegios</field>
+            <field name="arch" type="xml">
+                <form string="colegios form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="nombre"/>
+                                <field name="idCentro"/>
+                                <field name="educacion"/>
+                 
+                            </group>
+                            <group>
+                                <field name="aulaCentro"/>
+                                <field name="profesorCentro"/>
+                                <field name="materiales"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_centros_profesores_form">
+            <field name='name'>view.centros.profesores.form</field>
+            <field name="model">centros.profesores</field>
+            <field name="arch" type="xml">
+                <form string="profesores form" version="7.0">
+                    <sheet>
+                        <group colspan="2" col="2">
+                            <group>
+                                <field name="nombreProfe"/>
+                                <field name="apellido"/>
+                                <field name="nacimiento"/>
+                                <field name="edad"/>
+                 
+                            </group>
+                            <group>
+                                <field name="director"/>
+                                <field name="centro"/>
+                                <field name="aula"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_centros_aulas_form">
+            <field name='name'>view.centros.aulas.form</field>
+            <field name="model">centros.aulas</field>
+            <field name="arch" type="xml">
+                <form string="aulas form" version="7.0">
+                    <sheet>
+                        <group colspan="1" col="1">
+                            <group>
+                                <field name="idAula"/>
+                                <field name="profesorNombre"/>
+                                <field name="delegado"/>
+                                <field name="bilingue"/>
+                                
+                            </group>
+			   
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        
+    
+    
+    
+    
+</odoo>
+
+
+
+
+
+
